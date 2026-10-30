@@ -1,0 +1,465 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TUPAY | Cultura que conecta</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+ --cream:#f5efe3;
+ --paper:#fffaf1;
+ --red:#873b32;
+ --dark:#302522;
+ --gold:#c59a58;
+ --muted:#796c60;
+}
+
+body{
+ background:var(--cream);
+ color:var(--dark);
+ font-family:'DM Sans',sans-serif;
+}
+
+#tupay{overflow:hidden;width:100%;}
+
+.navbar{
+ display:flex;justify-content:space-between;
+ align-items:center;padding:18px 6%;
+ border-bottom:1px solid #d9cbb5;
+ background:#f8f1e5;
+ position:relative;z-index:5;
+}
+
+.logo{
+ color:var(--red);font-size:25px;
+ font-weight:700;letter-spacing:4px;
+ font-family:'Playfair Display',serif;
+}
+
+.navlinks{display:flex;gap:25px;align-items:center}
+
+.navlinks a{
+ text-decoration:none;color:var(--dark);
+ font-size:12px;font-weight:700;
+ text-transform:uppercase;letter-spacing:1px;
+}
+
+.navlinks a:hover{color:var(--red)}
+
+.hero{
+ padding:85px 8%;min-height:510px;
+ display:grid;grid-template-columns:1.1fr .9fr;
+ align-items:center;gap:35px;
+ background:
+ radial-gradient(ellipse at 85% 25%,#d9c29b66,transparent 40%),
+ linear-gradient(120deg,#f7f0e3,#eee1c9);
+}
+
+.tag{
+ color:var(--red);font-size:11px;
+ letter-spacing:4px;font-weight:700;
+ text-transform:uppercase;
+}
+
+.hero h1{
+ font:600 clamp(42px,6vw,72px)/1.08 'Playfair Display',serif;
+ margin:22px 0;
+}
+
+.hero h1 span{color:var(--red);font-style:italic}
+
+.hero p{
+ max-width:510px;color:var(--muted);
+ font-size:15px;line-height:1.9;
+}
+
+.buttons{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}
+
+.btn{
+ display:inline-block;padding:14px 22px;
+ background:var(--red);color:white;
+ text-decoration:none;font-size:12px;
+ font-weight:700;letter-spacing:1px;
+ border:1px solid var(--red);
+ transition:.25s;
+}
+
+.btn:hover{background:#632b25;transform:translateY(-3px)}
+
+.btn.outline{background:transparent;color:var(--red)}
+
+.art{
+ display:flex;align-items:center;justify-content:center;
+ min-height:300px;position:relative;
+}
+
+.art-circle{
+ width:270px;height:270px;border-radius:50%;
+ border:1px solid var(--gold);
+ display:grid;place-items:center;
+ background:linear-gradient(145deg,#e8d7b8,#c9a77a);
+ box-shadow:0 20px 60px #67452b22;
+ position:relative;
+}
+
+.art-circle:before{
+ content:"";position:absolute;inset:18px;
+ border:1px solid #fff9e5;
+ border-radius:50%;
+}
+
+.art-circle:after{
+ content:"";position:absolute;inset:38px;
+ border:1px dashed #fff9e5;
+ border-radius:50%;
+}
+
+.art-symbol{
+ font:110px 'Playfair Display',serif;
+ color:var(--red);z-index:1;
+}
+
+.section{padding:80px 8%}
+
+.heading{text-align:center;margin-bottom:45px}
+
+.heading small{
+ color:var(--red);font-size:11px;
+ letter-spacing:4px;font-weight:700;
+}
+
+.heading h2{
+ font:600 clamp(30px,4vw,43px) 'Playfair Display',serif;
+ margin:13px 0;
+}
+
+.heading p{
+ color:var(--muted);font-size:14px;
+ line-height:1.8;max-width:650px;margin:auto;
+}
+
+.about{
+ display:grid;grid-template-columns:1fr 1fr;
+ gap:45px;align-items:center;
+}
+
+.about h2{
+ font:600 36px 'Playfair Display',serif;
+ margin-bottom:18px;
+}
+
+.about p{
+ color:var(--muted);font-size:14px;
+ line-height:1.9;margin-bottom:14px;
+}
+
+.about-art{
+ background:linear-gradient(135deg,#9b5140,#4a302b);
+ color:#f7e8ce;padding:50px 30px;
+ min-height:270px;display:grid;place-items:center;
+ text-align:center;position:relative;
+}
+
+.about-art:after{
+ content:"";position:absolute;inset:13px;
+ border:1px solid #f5dfb677;
+}
+
+.about-art strong{
+ font:600 37px 'Playfair Display',serif;
+ z-index:1;
+}
+
+.features{
+ display:grid;grid-template-columns:repeat(3,1fr);
+ gap:18px;
+}
+
+.feature{
+ background:var(--paper);
+ padding:27px 22px;
+ border:1px solid #e1d4c0;
+ transition:.3s;
+}
+
+.feature:hover{
+ transform:translateY(-7px);
+ box-shadow:0 15px 30px #5a392015;
+}
+
+.feature .icon{
+ font-size:32px;color:var(--red);
+ margin-bottom:20px;
+}
+
+.feature h3{
+ font:600 21px 'Playfair Display',serif;
+ margin-bottom:12px;
+}
+
+.feature p{
+ font-size:13px;line-height:1.8;
+ color:var(--muted);
+}
+
+.culture{
+ background:#352825;color:#f8efdf;
+}
+
+.culture .heading p{color:#d6c7b4}
+
+.culture-grid{
+ display:grid;grid-template-columns:repeat(3,1fr);
+ gap:15px;
+}
+
+.culture-item{
+ padding:25px 20px;
+ border:1px solid #796057;
+ background:#45322d;
+ transition:.25s;
+}
+
+.culture-item:hover{background:#654139}
+
+.culture-item span{
+ color:#d5ae70;font-size:11px;
+ letter-spacing:2px;
+}
+
+.culture-item h3{
+ font:600 23px 'Playfair Display',serif;
+ margin:12px 0;
+}
+
+.culture-item p{
+ color:#d7c9b8;font-size:13px;line-height:1.7;
+}
+
+.quote{
+ text-align:center;padding:75px 10%;
+ background:#e9dcc5;
+}
+
+.quote h2{
+ font:600 clamp(28px,4vw,42px) 'Playfair Display',serif;
+ line-height:1.3;
+}
+
+.quote span{color:var(--red);font-style:italic}
+
+.quote p{
+ color:var(--muted);font-size:13px;
+ margin-top:18px;
+}
+
+.cta{
+ padding:75px 8%;text-align:center;
+ background:var(--red);color:#fff5e5;
+}
+
+.cta h2{
+ font:600 clamp(30px,4vw,44px) 'Playfair Display',serif;
+ margin-bottom:15px;
+}
+
+.cta p{
+ font-size:14px;line-height:1.8;
+ color:#f0dcd0;max-width:550px;margin:auto;
+}
+
+.cta .btn{
+ background:#f5ead8;color:var(--red);
+ border-color:#f5ead8;margin-top:25px;
+}
+
+footer{
+ padding:30px 8%;background:#29211f;
+ color:#d7c9b8;text-align:center;
+}
+
+footer strong{
+ color:#e4bd7c;letter-spacing:4px;
+ font:600 22px 'Playfair Display',serif;
+}
+
+footer p{font-size:11px;margin-top:12px;line-height:1.8}
+
+.reveal{
+ opacity:0;transform:translateY(25px);
+ transition:opacity .7s ease,transform .7s ease;
+}
+
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:700px){
+ .navbar{padding:17px 5%;flex-wrap:wrap}
+ .navlinks{gap:12px;flex-wrap:wrap;margin-top:12px}
+ .navlinks a{font-size:10px}
+ .hero{grid-template-columns:1fr;padding:65px 7%}
+ .art{min-height:250px}
+ .art-circle{width:220px;height:220px}
+ .art-symbol{font-size:90px}
+ .about{grid-template-columns:1fr}
+ .features,.culture-grid{grid-template-columns:1fr}
+ .section{padding:60px 7%}
+}
+</style>
+</head>
+
+<body>
+<div id="tupay">
+
+<header class="navbar">
+ <div class="logo">TUPAY.</div>
+ <nav class="navlinks">
+  <a href="#inicio">Inicio</a>
+  <a href="#nosotros">Nosotros</a>
+  <a href="#experiencia">Experiencia</a>
+  <a href="#culturas">Culturas</a>
+ </nav>
+</header>
+
+<section class="hero" id="inicio">
+ <div class="reveal">
+  <div class="tag">Cultura · Identidad · Conocimiento</div>
+  <h1>Conecta con tus raíces, descubre <span>tu cultura.</span></h1>
+  <p>
+   TUPAY es un espacio dedicado a acercarte a la riqueza
+   cultural del Perú y al aprendizaje de la lengua quechua.
+   Descubre, aprende y mantén viva nuestra herencia.
+  </p>
+  <div class="buttons">
+   <a class="btn" href="#experiencia">DESCUBRIR TUPAY ↗</a>
+   <a class="btn outline" href="#nosotros">CONOCER EL PROYECTO</a>
+  </div>
+ </div>
+
+ <div class="art reveal">
+  <div class="art-circle">
+   <div class="art-symbol">✧</div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="nosotros">
+ <div class="about">
+  <div class="reveal">
+   <div class="tag">Nuestra esencia</div>
+   <h2>Una conexión con nuestra historia.</h2>
+   <p>
+    El Perú posee una herencia cultural extraordinaria,
+    formada por pueblos, conocimientos, tradiciones y lenguas
+    que siguen formando parte de nuestra identidad.
+   </p>
+   <p>
+    TUPAY busca acercar ese legado a las nuevas generaciones
+    mediante una experiencia educativa y cultural accesible.
+   </p>
+  </div>
+  <div class="about-art reveal">
+   <strong>El pasado nos inspira.<br>El conocimiento nos conecta.</strong>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="experiencia">
+ <div class="heading reveal">
+  <small>EXPLORA Y APRENDE</small>
+  <h2>¿Qué encontrarás en TUPAY?</h2>
+  <p>Un espacio donde la cultura y el aprendizaje se encuentran.</p>
+ </div>
+
+ <div class="features">
+  <article class="feature reveal">
+   <div class="icon">⌘</div>
+   <h3>Aprende quechua</h3>
+   <p>Acércate a una de nuestras lenguas originarias mediante vocabulario, expresiones y actividades educativas.</p>
+  </article>
+
+  <article class="feature reveal">
+   <div class="icon">◇</div>
+   <h3>Descubre culturas</h3>
+   <p>Conoce las civilizaciones del antiguo Perú, sus aportes, costumbres y legado histórico.</p>
+  </article>
+
+  <article class="feature reveal">
+   <div class="icon">✧</div>
+   <h3>Valora nuestra identidad</h3>
+   <p>Explora la riqueza de las tradiciones peruanas y comprende su importancia para las nuevas generaciones.</p>
+  </article>
+ </div>
+</section>
+
+<section class="section culture" id="culturas">
+ <div class="heading reveal">
+  <small>UN LEGADO EXTRAORDINARIO</small>
+  <h2>Un Perú lleno de historia.</h2>
+  <p>Conoce algunas de las culturas que dejaron una huella en nuestra civilización.</p>
+ </div>
+
+ <div class="culture-grid">
+  <article class="culture-item reveal">
+   <span>01 · COSTA NORTE</span>
+   <h3>Moche</h3>
+   <p>Arte, cerámica, ingeniería hidráulica y arquitectura monumental.</p>
+  </article>
+  <article class="culture-item reveal">
+   <span>02 · COSTA SUR</span>
+   <h3>Nazca</h3>
+   <p>Geoglifos, cerámica policroma y conocimientos del entorno desértico.</p>
+  </article>
+  <article class="culture-item reveal">
+   <span>03 · ANDES</span>
+   <h3>Inca</h3>
+   <p>Organización, arquitectura, caminos y conocimientos agrícolas.</p>
+  </article>
+ </div>
+</section>
+
+<section class="quote">
+ <div class="reveal">
+  <h2>Una lengua no solo transmite palabras, también conserva <span>una historia.</span></h2>
+  <p>TUPAY · Cultura e idioma</p>
+ </div>
+</section>
+
+<section class="cta">
+ <div class="reveal">
+  <h2>¡Es momento de descubrir!</h2>
+  <p>Explora nuestra cultura, aprende sobre nuestras raíces y forma parte de una experiencia que busca mantener viva nuestra identidad.</p>
+  <a class="btn" href="#inicio">EXPLORAR TUPAY ↑</a>
+ </div>
+</section>
+
+<footer>
+ <strong>TUPAY.</strong>
+ <p>CULTURA · IDIOMA · IDENTIDAD</p>
+ <p>Un proyecto educativo para descubrir y valorar nuestra herencia cultural.</p>
+</footer>
+
+</div>
+
+<script>
+const observer = new IntersectionObserver(entries=>{
+ entries.forEach(entry=>{
+  if(entry.isIntersecting){
+   entry.target.classList.add('visible');
+   observer.unobserve(entry.target);
+  }
+ });
+},{threshold:0.12});
+
+document.querySelectorAll('#tupay .reveal').forEach(el=>{
+ observer.observe(el);
+});
+</script>
+
+</body>
+</html>
